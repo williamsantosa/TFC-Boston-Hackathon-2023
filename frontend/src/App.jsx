@@ -1,30 +1,32 @@
 import {
-  CssBaseline, Box 
+  CssBaseline, Box, AppBar, Toolbar,
+  Typography, IconButton, Fab
 } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import AddIcon from '@mui/icons-material/Add';
 import React from 'react';
 
 function App() {
 
   const onChange = (e) => {
     let files = e.target.files;
-    console.warn('data file', files);
 
     let reader = new FileReader();
-    reader.readAsText(files[0]);
+    let readFile = files[0];
+    reader.readAsText(readFile);
 
     reader.onload = async (e) => {
-      console.warn('img data', e.target.result);
-      
       const parts = [
         new Blob([e.target.result], {
-          type: 'text/markdown'
+          type: 'text/text'
         }),
         new Uint16Array([33])
       ];
 
-      const file = new File(parts, 'sample.txt', {
-        lastModified: new Date(2020, 1, 1),
-        type: "text/plain"
+      const fileName = readFile.name.substring(0, readFile.name.lastIndexOf("."));
+      const file = new File(parts, `${fileName}_notes.md`, {
+        lastModified: new Date(),
+        type: "text/markdown"
       });
 
       const fr = new FileReader();
@@ -43,7 +45,38 @@ function App() {
     <>
       <CssBaseline/>
       <Box>
-        <input type="file" name="file" onChange={e => onChange(e)}/>
+        <AppBar>
+          <Toolbar>
+            <Typography variant='h4'>NoteScript</Typography>
+          </Toolbar>
+        </AppBar>
+        <Toolbar/>
+        <label htmlFor="upload-photo">
+          <input
+            style={{display: 'none'}}
+            id="upload-photo"
+            name="file"
+            type="file"
+            onChange={e => onChange(e)}
+          />
+          <br />
+          <br />
+          <Fab
+            color="secondary"
+            size="small"
+            component="span"
+            aria-label="add"
+            variant="extended"
+            style={{
+              justifyContent: 'center',
+              margin: 'auto',
+              width: '50%',
+              padding: '10px'
+            }}
+          >
+            <AddIcon /> UPLOAD TRANSCRIPT
+          </Fab>
+        </label>
       </Box>
     </>
   );
