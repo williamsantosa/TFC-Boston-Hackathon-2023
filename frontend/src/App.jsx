@@ -47,7 +47,7 @@ function App() {
       <Box>
         <AppBar>
           <Toolbar>
-            <Typography variant='h4'>NoteScript</Typography>
+            <Typography variant='h2'>NoteScript</Typography>
           </Toolbar>
         </AppBar>
         <Toolbar/>
