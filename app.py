@@ -13,12 +13,12 @@ def index():
     # print(openai.api_key)
     if request.method == "POST":
         # animal = request.form["animal"]
-        # print("=========================================")
-        # print(request.body['Content-Type'])
+        print("=========================================")
+        # print(request.get_json()["prompt"])
         
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt="hello world",
+            prompt=request.get_json()["prompt"],
             temperature=0.7,
             max_tokens=256,
             top_p=1,
