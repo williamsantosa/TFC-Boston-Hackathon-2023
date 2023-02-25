@@ -1,7 +1,6 @@
 import {
   CssBaseline, Box, Typography, Fab
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 import AddIcon from '@mui/icons-material/Add';
 import React from 'react';
 
@@ -23,18 +22,18 @@ function App() {
       ];
 
       const fileName = readFile.name.substring(0, readFile.name.lastIndexOf("."));
-      const file = new File(parts, `${fileName}_notes.md`, {
+      const file = new File(parts, `${fileName}_notes.txt`, {
         lastModified: new Date(),
-        type: "text/markdown"
+        type: "text/text"
       });
 
       const fr = new FileReader();
       fr.onload = (evt) => {
+        const link = URL.createObjectURL(file);
         document.body.innerHTML = `
-         <a href="${URL.createObjectURL(file)}" download="${file.name}">download</a>
-          <p>file type: ${file.type}</p>
-          <p>file last modified: ${new Date(file.lastModified)}</p>
-        `
+        <a id="click" href="${link}" download="${file.name}">click here if the file does not download automatically...</a>
+        `;
+        document.getElementById("click").click(); 
       }
       fr.readAsText(file);
     };
@@ -48,7 +47,7 @@ function App() {
           style={{
             flexGrow: 1,
             textAlign: "center",
-            marginTop: '5%'
+            marginTop: '18%'
           }}
         >
           NoteScript
