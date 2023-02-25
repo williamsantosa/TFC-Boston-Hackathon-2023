@@ -43,7 +43,7 @@ function App() {
     <>
       <CssBaseline />
       <Box>
-        <Typography variant='h1'
+        <Typography variant='h2'
           style={{
             flexGrow: 1,
             textAlign: "center",
