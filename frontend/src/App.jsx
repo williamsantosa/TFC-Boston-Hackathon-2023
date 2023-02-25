@@ -40,7 +40,7 @@ function App() {
   };
 
   return (
-    <>
+    <Box>
       <CssBaseline />
       <Box>
         <Typography variant='h2'
@@ -52,6 +52,13 @@ function App() {
         >
           NoteScript
         </Typography>
+        <Box
+          style={{
+            flexGrow: 1,
+            textAlign: "center",
+            marginTop: "5%"
+          }}
+        >
         <label htmlFor="upload-photo">
           <input
             style={{ 
@@ -70,18 +77,13 @@ function App() {
             component="span"
             aria-label="add"
             variant="extended"
-            style={{
-              flexGrow: 1,
-              textAlign: "center",
-              marginLeft: "43%",
-              marginTop: "5%"
-            }}
           > 
             <AddIcon /> UPLOAD TRANSCRIPT
           </Fab>
         </label>
+        </Box>
       </Box>
-    </>
+    </Box>
   );
 }
 
