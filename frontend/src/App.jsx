@@ -2,7 +2,6 @@ import {
   CssBaseline, Box 
 } from '@mui/material';
 import React from 'react';
-import Axios from 'axios';
 
 function App() {
 
@@ -17,16 +16,17 @@ function App() {
       console.warn('img data', e.target.result);
       
       const parts = [
-        new Blob(['you construct a file...'], {
-          type: 'text/plain'
+        new Blob([e.target.result], {
+          type: 'text/markdown'
         }),
-        ' Same way as you do with blob',
         new Uint16Array([33])
       ];
+
       const file = new File(parts, 'sample.txt', {
         lastModified: new Date(2020, 1, 1),
         type: "text/plain"
       });
+
       const fr = new FileReader();
       fr.onload = (evt) => {
         document.body.innerHTML = `
