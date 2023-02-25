@@ -4,7 +4,7 @@ Civic Tech Hackathon hosted by Tech For Change at Boston University, Feb 25 - 26
 
 ## Credits
 
-Team Name: 
+Team Name: Boston Slugs
 
 Contributors:
 - Arrian Chi - University of California, Santa Cruz
