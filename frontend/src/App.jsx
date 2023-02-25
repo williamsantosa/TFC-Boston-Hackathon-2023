@@ -1,6 +1,5 @@
 import {
-  CssBaseline, Box, AppBar, Toolbar,
-  Typography, IconButton, Fab
+  CssBaseline, Box, Typography, Fab
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import AddIcon from '@mui/icons-material/Add';
@@ -43,37 +42,42 @@ function App() {
 
   return (
     <>
-      <CssBaseline/>
+      <CssBaseline />
       <Box>
-        <AppBar>
-          <Toolbar>
-            <Typography variant='h2'>NoteScript</Typography>
-          </Toolbar>
-        </AppBar>
-        <Toolbar/>
+        <Typography variant='h2'
+          style={{
+            flexGrow: 1,
+            textAlign: "center",
+            marginTop: '5%'
+          }}
+        >
+          NoteScript
+        </Typography>
         <label htmlFor="upload-photo">
           <input
-            style={{display: 'none'}}
+            style={{ 
+              display: 'none',
+              flexGrow: 1,
+              textAlign: "center"
+            }}
             id="upload-photo"
             name="file"
             type="file"
             onChange={e => onChange(e)}
           />
-          <br />
-          <br />
           <Fab
             color="secondary"
-            size="small"
+            size="large"
             component="span"
             aria-label="add"
             variant="extended"
             style={{
-              justifyContent: 'center',
-              margin: 'auto',
-              width: '50%',
-              padding: '10px'
+              flexGrow: 1,
+              textAlign: "center",
+              marginLeft: "43%",
+              marginTop: "5%"
             }}
-          >
+          > 
             <AddIcon /> UPLOAD TRANSCRIPT
           </Fab>
         </label>
