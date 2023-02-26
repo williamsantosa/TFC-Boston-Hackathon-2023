@@ -1,6 +1,8 @@
-# TFC Civic Tech Hackathon - Boston University 2023
+# NoteScript (TFC Civic Tech Hackathon - Boston University 2023)
 
-Civic Tech Hackathon hosted by Tech For Change at Boston University, Feb 25 - 26, 2023.
+NoteScript is a full stack web application that allows users to easily generate notes for transcripts.
+
+Created for the Civic Tech Hackathon hosted by Tech For Change at Boston University, Feb 25 - 26, 2023.
 
 ## Credits
 
