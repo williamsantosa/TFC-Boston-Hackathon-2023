@@ -26,18 +26,9 @@ Download dependencies on `requirements.txt`
 
 ## Set the API Key
 
-Make account. Set API key using environmental variable. `OPENAI_API_KEY = <ai_key>`.
+1. Make OpenAI account. 
+2. Create an API key on your OpenAI account in settings.
+3. Make sure to keep track of your given secret key.
+4. Create a file called `.env`
+5. Set API key using environmental variable in the `.env` file. Do this with `OPENAI_API_KEY = <ai_key>` in the file.
 
-## Introduce team
-
-## Brief summary of problem and personal connections 
-
-## Explain team's solution
-
-## Expand on how the solution works
-
-## Explain the benefits of this solution
-
-## Project your voice 
-
-## Try your best to enunciate
