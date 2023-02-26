@@ -76,7 +76,7 @@ function App() {
         <CssBaseline />
         <Box>
           <Toolbar/>
-          <Typography variant='h2'
+          <Typography variant='h1'
             style={{
               flexGrow: 1,
               textAlign: "center",
@@ -118,6 +118,10 @@ function App() {
             </label>
           </Box>
           <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
             <li></li>
             <li></li>
             <li></li>
