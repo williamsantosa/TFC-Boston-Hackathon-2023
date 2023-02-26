@@ -32,3 +32,7 @@ Download dependencies on `requirements.txt`
 4. Create a file called `.env`
 5. Set API key using environmental variable in the `.env` file. Do this with `OPENAI_API_KEY = <ai_key>` in the file.
 
+## Misc
+
+1. [DevPost](https://devpost.com/software/notescript-xdgeni)
+2. [Slides](https://docs.google.com/presentation/d/1wOo-4DpZ9vOLqMo58xXMbq-H3giTcmPWja-o58IPlXI/edit?usp=sharing)
