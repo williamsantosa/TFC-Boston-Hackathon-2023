@@ -2,8 +2,10 @@ import os
 
 import openai
 from flask import Flask, redirect, render_template, request, url_for
-
+from flask_cors import CORS, cross_origin
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
@@ -13,8 +15,9 @@ def index():
     # print(openai.api_key)
     if request.method == "POST":
         # animal = request.form["animal"]
-        print("=========================================")
         # print(request.get_json()["prompt"])
+        # print("=========================================")
+        # print(request)
         
         response = openai.Completion.create(
             model="text-davinci-003",

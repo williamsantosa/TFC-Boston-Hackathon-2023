@@ -3,6 +3,7 @@ import {
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import React from 'react';
+import axios from 'axios';
 
 function App() {
 
@@ -14,28 +15,56 @@ function App() {
     reader.readAsText(readFile);
 
     reader.onload = async (e) => {
-      const parts = [
-        new Blob([e.target.result], {
-          type: 'text/text'
-        }),
-        new Uint16Array([33])
-      ];
 
-      const fileName = readFile.name.substring(0, readFile.name.lastIndexOf("."));
-      const file = new File(parts, `${fileName}_notes.txt`, {
-        lastModified: new Date(),
-        type: "text/text"
-      });
+      // console.log(reader.result)
+      // let formData = new FormData();
+      // formData.append("prompt", reader.result);
+      // formData.append("prompt", "hello world");
+      await axios({
+        // Endpoint to send files
+        url: "http://localhost:5000",
+        method: "POST",
+        headers: {
+          // Add any auth token here
+          // authorization: "your token comes here",
+        },
+          // Attaching the form data
+        data: {
+          "prompt": e.target.result // reader.result
+        },
+      })
+    
+        // Handle the response from backend here
+        .then((res) => {
+          let ans = (res.data.split("<div class=\"result\">")[1]).split("</div>")[0];
+          // console.log(typeof (res.response))
+          const parts = [
+            new Blob([ans], {
+              type: 'text/text'
+            }),
+            new Uint16Array([33])
+          ];
+    
+          const fileName = readFile.name.substring(0, readFile.name.lastIndexOf("."));
+          const file = new File(parts, `${fileName}_notes.txt`, {
+            lastModified: new Date(),
+            type: "text/text"
+          });
 
-      const fr = new FileReader();
-      fr.onload = (evt) => {
-        const link = URL.createObjectURL(file);
-        document.body.innerHTML = `
-        <a id="click" href="${link}" download="${file.name}">click here if the file does not download automatically...</a>
-        `;
-        document.getElementById("click").click(); 
-      }
+          const fr = new FileReader();
+          fr.onload = (evt) => {
+            const link = URL.createObjectURL(file);
+            document.body.innerHTML = `
+            <a id="click" href="${link}" download="${file.name}">click here if the file does not download automatically...</a>
+            `;
+            document.getElementById("click").click(); 
+          }
       fr.readAsText(file);
+         })
+        // Catch errors if any
+        .catch((err) => { });
+
+      
     };
   };
 
