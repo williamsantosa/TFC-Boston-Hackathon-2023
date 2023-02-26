@@ -39,7 +39,7 @@ def completeTopics(prompt):
         model="text-davinci-003",
         prompt=prompt,
         temperature=0.2,
-        max_tokens=256,
+        max_tokens=512,
         top_p=1,
         frequency_penalty=1.5,
         presence_penalty=1.0
@@ -53,8 +53,8 @@ def completeNotes(prompt):
         temperature=0.2,
         max_tokens=512,
         top_p=1,
-        frequency_penalty=1.5,
-        presence_penalty=1.0
+        frequency_penalty=0.7,
+        presence_penalty=0.7
     ).choices[0].text
     return response
 
@@ -68,27 +68,27 @@ def index():
         # print(request.get_json()["prompt"])
         origTranscript = request.get_json()["prompt"]
 
-        # Summarize the following lecture
-        totalLength = len(origTranscript)
-        s = 0
-        total = 0
-        summary = ""
+        # # Summarize the following lecture
+        # totalLength = len(origTranscript)
+        # s = 0
+        # total = 0
+        # summary = ""
 
-        while total < totalLength:
-            # Get chunk
-            out, s = get_chunk(origTranscript)
+        # while total < totalLength:
+        #     # Get chunk
+        #     out, s = get_chunk(origTranscript)
 
-            # Get the summarize
-            instruction0 = "Summarize the following excerpt of the lecture with concision: \n"
-            notesPrompt = instruction0 + f"[BEGIN EXCERPT]{out}[END EXCERPT] \n Summarize with concision: "
-            summary += completeSummarize(notesPrompt)
+        #     # Get the summarize
+        #     instruction0 = "Summarize the following excerpt of the lecture with concision: \n"
+        #     notesPrompt = instruction0 + f"[BEGIN EXCERPT]{out}[END EXCERPT] \n Summarize with concision: "
+        #     summary += completeSummarize(notesPrompt)
 
-            # update chunk
-            origTranscript = origTranscript[s:]
-            total += s
+        #     # update chunk
+        #     origTranscript = origTranscript[s:]
+        #     total += s
 
 
-        transcript = summary
+        transcript = origTranscript
         totalLength = len(transcript)
         s = 0
         total = 0
@@ -105,7 +105,7 @@ def index():
         transcript = transcript[s:]
         total += s
 
-        while total < totalLength:
+        while total < totalLength/3:
             # Get chunk
             out, s = get_chunk(transcript)
 
