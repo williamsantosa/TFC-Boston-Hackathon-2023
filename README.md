@@ -27,3 +27,17 @@ Download dependencies on `requirements.txt`
 ## Set the API Key
 
 Make account. Set API key using environmental variable. `OPENAI_API_KEY = <ai_key>`.
+
+## Introduce team
+
+## Brief summary of problem and personal connections 
+
+## Explain team's solution
+
+## Expand on how the solution works
+
+## Explain the benefits of this solution
+
+## Project your voice 
+
+## Try your best to enunciate
