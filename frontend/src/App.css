@@ -136,13 +136,14 @@ body{
 
   0%{
       transform: translateY(0) rotate(0deg);
+      background: rgb(55, 239, 125);
       opacity: 1;
       border-radius: 0;
   }
 
   100%{
       transform: translateY(-1000px) rotate(720deg);
-      background: rgba(0, 122, 255, 0.9);
+      background: rgb(60, 164, 244);
       opacity: 0;
       border-radius: 50%;
   }
@@ -151,22 +152,14 @@ body{
 
 @keyframes animate-2 {
   0% {
-    background-color: #ff7cde;
-  }
-
-  25% {
-    background-color: #a2ff9c;
+    background-color: #f063e2;
   }
 
   50% {
-    background-color: #6bffdc;
-  }
-
-  75% {
-    background-color: #a2ff9c;
+    background-color: #c659fd;
   }
 
   100% {
-    background-color: #ff7cde;
+    background-color: #f063e2;
   }
 }
