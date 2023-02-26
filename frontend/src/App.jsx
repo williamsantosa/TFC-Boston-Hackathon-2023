@@ -1,8 +1,10 @@
 import {
-  CssBaseline, Box, Typography, Fab
+  CssBaseline, Box, Typography, Fab,
+  Toolbar
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import React from 'react';
+import './App.css';
 
 function App() {
 
@@ -33,57 +35,74 @@ function App() {
         document.body.innerHTML = `
         <a id="click" href="${link}" download="${file.name}">click here if the file does not download automatically...</a>
         `;
-        document.getElementById("click").click(); 
+        document.getElementById("click").click();
       }
       fr.readAsText(file);
     };
   };
 
   return (
-    <Box>
-      <CssBaseline />
+    <div className='area'>
       <Box>
-        <Typography variant='h2'
-          style={{
-            flexGrow: 1,
-            textAlign: "center",
-            marginTop: '18%'
-          }}
-        >
-          NoteScript
-        </Typography>
-        <Box
-          style={{
-            flexGrow: 1,
-            textAlign: "center",
-            marginTop: "5%"
-          }}
-        >
-        <label htmlFor="upload-photo">
-          <input
-            style={{ 
-              display: 'none',
+        <CssBaseline />
+        <Box>
+          <Toolbar/>
+          <Typography variant='h2'
+            style={{
               flexGrow: 1,
-              textAlign: "center"
+              textAlign: "center",
+              marginTop: '8%',
+              color: 'black',
+              zIndex: 1700
             }}
-            id="upload-photo"
-            name="file"
-            type="file"
-            onChange={e => onChange(e)}
-          />
-          <Fab
-            color="secondary"
-            size="large"
-            component="span"
-            aria-label="add"
-            variant="extended"
-          > 
-            <AddIcon /> UPLOAD TRANSCRIPT
-          </Fab>
-        </label>
+          >
+            NoteScript
+          </Typography>
+          <Box
+            style={{
+              flexGrow: 1,
+              textAlign: "center",
+              marginTop: "5%"
+            }}
+          >
+            <label htmlFor="upload-photo">
+              <input
+                style={{
+                  display: 'none',
+                  flexGrow: 1,
+                  textAlign: "center"
+                }}
+                id="upload-photo"
+                name="file"
+                type="file"
+                onChange={e => onChange(e)}
+              />
+              <Fab
+                color="secondary"
+                size="large"
+                component="span"
+                aria-label="add"
+                variant="extended"
+              >
+                <AddIcon /> UPLOAD TRANSCRIPT
+              </Fab>
+            </label>
+          </Box>
+          <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
         </Box>
       </Box>
-    </Box>
+    </div>
   );
 }
 
