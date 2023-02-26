@@ -43,18 +43,6 @@ function App() {
 
   return (
     <div className='area'>
-      <ul class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
       <Box>
         <CssBaseline />
         <Box>
@@ -63,7 +51,9 @@ function App() {
             style={{
               flexGrow: 1,
               textAlign: "center",
-              marginTop: '8%'
+              marginTop: '8%',
+              color: 'black',
+              zIndex: 1700
             }}
           >
             NoteScript
@@ -98,6 +88,18 @@ function App() {
               </Fab>
             </label>
           </Box>
+          <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
         </Box>
       </Box>
     </div>

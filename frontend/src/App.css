@@ -35,6 +35,7 @@ body{
   width: 100%;
   height: 100%;
   overflow: hidden;
+  opacity: 50%;
   animation: animate-2 50s linear infinite;
   animation-delay: 0s;
   animation-duration: 18s;
@@ -150,22 +151,22 @@ body{
 
 @keyframes animate-2 {
   0% {
-    background-color: #C45BAA;
+    background-color: #ff7cde;
   }
 
   25% {
-    background-color: #BFFFBC;
+    background-color: #a2ff9c;
   }
 
   50% {
-    background-color: #B5D2CB;
+    background-color: #6bffdc;
   }
 
   75% {
-    background-color: #BFFFBC;
+    background-color: #a2ff9c;
   }
 
   100% {
-    background-color: #C45BAA;
+    background-color: #ff7cde;
   }
 }
