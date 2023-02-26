@@ -53,8 +53,8 @@ def completeNotes(prompt):
         temperature=0.2,
         max_tokens=512,
         top_p=1,
-        frequency_penalty=0.7,
-        presence_penalty=0.7
+        frequency_penalty=1.5,
+        presence_penalty=1.5
     ).choices[0].text
     return response
 
@@ -130,7 +130,6 @@ def index():
                 continue
 
         notesForTopic = []
-        noteTopics = [noteTopics[0]]
         for i, noteTopic in enumerate(noteTopics):
             transcript = request.get_json()["prompt"]
 
@@ -164,7 +163,7 @@ def index():
                 transcript = transcript[s:]
                 total += s
 
-        return redirect(url_for("index", result="Lecture Notes\n\nTable of Contents\n"+
+        return redirect(url_for("index", result="Lecture Notes\n\nTable of Contents\n-"+
                                                 "\n-".join(noteTopics) +"\n\n".join(notesForTopic)))
 
     result = request.args.get("result")
